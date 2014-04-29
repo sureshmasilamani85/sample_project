@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SampleProject</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <% unless user_signed_in?%>
+        <%= link_to "sing_in", new_user_session_path %>
+    <%else%>
+        <%= "Hi #{current_user.email}" %>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        <br/>
+        <%= link_to t('.Product', :default => t("helpers.links.Product")),
+            products_path,
+            :class => 'btn btn-primary' %>
+        <%= link_to t('.Category', :default => t("helpers.links.Category")),
+            categories_path,
+            :class => 'btn btn-primary' %>
+    <%end%>
+    <%= yield %>
+</body>
+</html>
