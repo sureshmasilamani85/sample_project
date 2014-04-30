@@ -3,18 +3,7 @@
 #
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
-development:
-  adapter: postgresql
-  username: postgres
-  password: srishti
-  host: localhost
-  port: 5433
-  database: sample_prject
-
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
-# test:
+#development:
 #  adapter: postgresql
 #  username: postgres
 #  password: srishti
@@ -22,10 +11,24 @@ development:
 #  port: 5433
 #  database: sample_prject
 
-# production:
-# adapter: postgresql
-#  username: postgres
-#  password: srishti
-#  host: localhost
-#  port: 5433
-#  database: sample_prject
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: di_development
+  pool: 5
+  username: davidlee
+  password:
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: di_test
+  pool: 5
+  username: davidlee
+  password:
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: di_production
+  pool: 5
+  username: user
+  password:
